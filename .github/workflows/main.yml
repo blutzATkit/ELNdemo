@@ -66,3 +66,9 @@ jobs:
           ls
           mkdir -p spectra-shared
           sudo tar cfz ELNdemo.tar.gz db-data docker-compose.yml scripts shared spectra_config.py spectra-shared
+          ls
+      - name: Archive container image
+        uses: actions/upload-artifact@v2
+        with:
+          name: ELNdemo tarball
+          path: ELNdemo.tar.gz
