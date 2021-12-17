@@ -61,3 +61,4 @@ jobs:
           mkdir -p spectra-shared
           docker-compose up -d
           sleep 30
+          curl -L localhost:4000 | tail -5 | head -1
