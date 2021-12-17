@@ -62,4 +62,5 @@ jobs:
           sleep 30
           curl -L localhost:4000 | tail -5 | head -1
           cd seleniumTests/Tests/
+          sudo apt -y install python3-selenium firefox-geckodriver
           python3 userManagement.py
