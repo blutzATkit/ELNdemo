@@ -24,10 +24,8 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ls
-          echo -- Unpacking db-data ...
-          tar xfz db-data.tar.gz
-          rm db-data.tar.gz
-          echo -- db-data unpacked.
+          echo -- creating folder db-data
+          mkdir db-data
           ls
           cd shared/eln/
           ls
@@ -59,6 +57,7 @@ jobs:
           cd ../..
           ls
           mkdir -p spectra-shared
+          yes yes | docker-compose run --service-ports eln init
           docker-compose up -d
           sleep 30
           curl -L localhost:4000 | tail -5 | head -1
