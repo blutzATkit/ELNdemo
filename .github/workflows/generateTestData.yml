@@ -44,8 +44,8 @@ jobs:
           mkdir -p db-data
 
           mkdir -p spectra-shared
-          docker-compose run landscape deploy
-          yes yes | docker-compose run --service-ports eln init
+          docker-compose run eln landscape deploy
+          yes yes | docker-compose run eln init
           docker-compose up -d
           sleep 30
           curl -L localhost:4000 | tail -5 | head -1
