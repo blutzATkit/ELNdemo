@@ -65,3 +65,5 @@ jobs:
           sudo apt -y install python3-selenium firefox-geckodriver
           MOZ_HEADLESS=1 python3 userManagement.py
           MOZ_HEADLESS=1 python3 collectionInteraction.py
+          cd ../..
+          du -sh
