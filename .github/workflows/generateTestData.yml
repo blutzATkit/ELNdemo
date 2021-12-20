@@ -66,4 +66,4 @@ jobs:
           MOZ_HEADLESS=1 python3 userManagement.py
           MOZ_HEADLESS=1 python3 collectionInteraction.py
           cd ../..
-          du -sh
+          sudo du -sh
