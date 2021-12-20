@@ -34,7 +34,8 @@ class LoginTest(unittest.TestCase):
     def test_00_import_file_select_click(self):
         home_page = HomePage(self.driver)
         home_page.click_import()
-        home_page.enter_path_import_file_select("../demo.zip")
+        demo_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__),'../demo.zip'))
+        home_page.enter_path_import_file_select(demo_file_path)
         home_page.click_import_import()
         time.sleep(15)
 
