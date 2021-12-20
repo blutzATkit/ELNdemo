@@ -24,39 +24,27 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ls
-          echo -- creating folder db-data
-          mkdir db-data
-          ls
-          cd shared/eln/
-          ls
-          echo -- Unpacking app.tar.gz
-          tar xfz app.tar.gz
-          rm app.tar.gz
-          echo -- app.tar.gz unpacked.
-          echo -- Unpacking config.tar.gz
-          tar xfz config.tar.gz
-          rm config.tar.gz
-          echo -- config.tar.gz unpacked.
-          echo -- Unpacking log.tar.gz
-          tar xfz log.tar.gz
-          rm log.tar.gz
-          echo -- log.tar.gz unpacked.
-          echo -- Unpacking public.tar.gz
-          tar xfz public.tar.gz
-          rm public.tar.gz
-          echo -- public.tar.gz unpacked.
-          echo -- Unpacking tmp.tar.gz
-          tar xfz tmp.tar.gz
-          rm tmp.tar.gz
-          echo -- tmp.tar.gz unpacked.
-          echo -- Unpacking uploads.tar.gz
-          tar xfz uploads.tar.gz
-          rm uploads.tar.gz
-          echo -- uploads.tar.gz unpacked.
-          ls
-          cd ../..
-          ls
+
+          mkdir -p shared/eln/log
+          mkdir -p shared/eln/tmp
+          mkdir -p shared/eln/uploads
+          mkdir -p shared/eln/public/packs
+          mkdir -p shared/eln/public/assets
+          mkdir -p shared/eln/public/images/ketcherails
+          mkdir -p shared/eln/public/docx
+          mkdir -p shared/eln/public/zip
+          mkdir -p shared/eln/public/simulations
+          mkdir -p shared/eln/app/packs/src/components/extra
+          mkdir -p shared/eln/public/images/molecules
+          mkdir -p shared/eln/public/images/samples
+          mkdir -p shared/eln/public/images/qr
+          mkdir -p shared/eln/public/images/reactions
+          mkdir -p shared/eln/public/images/research_plans
+          mkdir -p shared/eln/config
+          mkdir -p db-data
+
           mkdir -p spectra-shared
+          docker-compose run landscape deploy
           yes yes | docker-compose run --service-ports eln init
           docker-compose up -d
           sleep 30
