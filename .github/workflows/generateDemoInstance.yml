@@ -54,6 +54,7 @@ jobs:
           MOZ_HEADLESS=1 python3 userManagement.py
           MOZ_HEADLESS=1 python3 collectionInteraction.py
           cd ../..
+          sudo rm shared/eln/public/zip/*zip
           sudo du -sh
 
           sudo tar cfz ELNdemo.tar.gz db-data docker-compose.yml scripts shared spectra_config.py spectra-shared
